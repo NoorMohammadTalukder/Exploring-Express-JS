@@ -56,10 +56,20 @@ app.get("/four",function(req,res){
     res.json(persons);
  });
 
- //-----response status code
+ //-----response download
 
 app.get("/five",function(req,res){
     res.download("./images/nature.jpeg");
+ });
+
+ //-----response redirect
+
+app.get("/six",function(req,res){
+    res.redirect("/seven");
+ });
+
+app.get("/seven",function(req,res){
+    res.send("This route /seven. Redirected from route /six");
  });
 
 
