@@ -26,6 +26,12 @@ app.post("/two",function(req,res){
     res.end("this is simple text response");
 })
 
+//-----response status code
+
+app.get("/three",function(req,res){
+   res.status(200).end("ok");
+});
+
 app.listen(8000, function () {
   console.log("server running on port 8000");
 });
