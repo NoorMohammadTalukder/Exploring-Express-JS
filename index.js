@@ -56,6 +56,12 @@ app.get("/four",function(req,res){
     res.json(persons);
  });
 
+ //-----response status code
+
+app.get("/five",function(req,res){
+    res.download("./images/nature.jpeg");
+ });
+
 
 app.listen(8000, function () {
   console.log("server running on port 8000");
