@@ -32,6 +32,31 @@ app.get("/three",function(req,res){
    res.status(200).end("ok");
 });
 
+//-----json response
+
+app.get("/four",function(req,res){
+    const persons=[
+        {
+            name:"noor",
+            age:20,
+            city:"Dhaka"
+        },
+        {
+            name:"rifat",
+            age:22,
+            city:"Comilla"
+        },
+        {
+            name:"riaz",
+            age:30,
+            city:"Chadpur"
+        },
+    ]
+
+    res.json(persons);
+ });
+
+
 app.listen(8000, function () {
   console.log("server running on port 8000");
 });
