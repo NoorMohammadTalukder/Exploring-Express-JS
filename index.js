@@ -72,6 +72,16 @@ app.get("/seven",function(req,res){
     res.send("This route /seven. Redirected from route /six");
  });
 
+  //-----response header
+
+app.get("/eight",function(req,res){
+  res.append("name","noor");
+  res.append("city","dhaka");
+  res.append("age","20");
+
+  res.status(201).end("all ok");
+});
+
 
 app.listen(8000, function () {
   console.log("server running on port 8000");
