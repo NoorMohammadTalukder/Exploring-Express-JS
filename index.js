@@ -1,6 +1,12 @@
 var express = require("express");
+var bodyParser=require("body-parser");
+var multer=require('multer');
 
-app = express();
+var app = express();
+var multer=multer();
+app.use(bodyParser.json());
+app.use(multer.array());
+app.use(express.static("public"));
 
 //-------routing
 app.get("/", function (req, res) {
@@ -125,6 +131,50 @@ app.get("/twelve",function(req,res){
   res.end(fName+" "+lName);
 });
 
+//-----Post method URL query
+
+app.post("/thirteen",function(req,res){
+  let fName=req.query.firstName;
+  let lName=req.query.lastName;
+
+  res.end(fName+" "+lName);
+});
+
+//-----post Request header
+
+app.post("/fourteen",function(req,res){
+  let userName=req.header("userName");
+  let password=req.header("password");
+
+  res.send("user name: "+userName +" "+"Password: "+password);
+});
+
+//-----post Request json
+
+app.post("/fifteen",function(req,res){
+  let jsonData=req.body;
+  let jsonString=JSON.stringify(jsonData);
+
+  res.send(jsonString);
+});
+
+app.post("/sixteen",function(req,res){
+  let jsonData=req.body;
+  let name=jsonData.name;
+  let city=jsonData["city"]
+
+  res.send(name+city);
+});
+
+
+//-----post Request multipart/formdata
+
+app.post("/seventeen",function(req,res){
+  let jsonData=req.body;
+  let jsonString=JSON.stringify(jsonData);
+
+  res.send(jsonString);
+});
 
 app.listen(8000, function () {
   console.log("server running on port 8000");
