@@ -107,6 +107,16 @@ app.get("/ten",function(req,res){
 });
 
 
+//-----URL query
+
+app.get("/eleven",function(req,res){
+  let fName=req.query.firstName;
+  let lName=req.query.lastName;
+
+  res.end(fName+" "+lName);
+});
+
+
 app.listen(8000, function () {
   console.log("server running on port 8000");
 });
