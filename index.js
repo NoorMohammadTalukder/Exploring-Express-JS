@@ -116,6 +116,15 @@ app.get("/eleven",function(req,res){
   res.end(fName+" "+lName);
 });
 
+//-----Get Request header
+
+app.get("/twelve",function(req,res){
+  let fName=req.header("firstName");
+  let lName=req.header("lastName");
+
+  res.end(fName+" "+lName);
+});
+
 
 app.listen(8000, function () {
   console.log("server running on port 8000");
