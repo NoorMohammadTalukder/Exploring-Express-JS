@@ -82,6 +82,30 @@ app.get("/eight",function(req,res){
   res.status(201).end("all ok");
 });
 
+//-----cookies
+
+app.get("/nine",function(req,res){
+  res.cookie("name","noor");
+  res.cookie("city","dhaka");
+  res.cookie("age","20");
+
+  res.status(201);
+  res.send("cookie set");
+  res.end();
+});
+
+//-----cookies clear
+
+app.get("/ten",function(req,res){
+  res.clearCookie("name","noor");
+  res.clearCookie("city","dhaka");
+  res.clearCookie("age","20");
+
+  res.status(201);
+  res.send("cookie clear");
+  res.end();
+});
+
 
 app.listen(8000, function () {
   console.log("server running on port 8000");
