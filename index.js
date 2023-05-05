@@ -8,6 +8,20 @@ app.use(bodyParser.json());
 app.use(multer.array());
 app.use(express.static("public"));
 
+//---application middleware
+
+app.use(function(req,res,next){
+  console.log("hello user I am application middleware");
+  next();
+})
+
+//--- route middleware
+app.get("/routeMiddleware",function(req,res,next){
+  console.log("Hello !!! I am route Middleware");
+  res.send("all ok");
+  next();
+})
+
 //-------routing
 app.get("/", function (req, res) {
   res.send("hello world!!!");
